@@ -1,11 +1,11 @@
 """
 面试题17：打印1到最大的n位数
-题目：输入数字你，按顺序打印出从1到最大的n位十进制数。
+题目：输入数字n，按顺序打印出从1到最大的n位十进制数。
 例：
 输入3，则打印出1、2、3、...、999。
 """
 
-def print_1_max_of_n_digit(n):
+def print_1_to_max_of_n_digit(n):
     if n <= 0:
         raise Exception('Invalid Input')
     for i in range(1,10**n):
@@ -27,7 +27,7 @@ def list_print(num_in_list):
     print()
     return
 
-def print_1_max_of_n_digit_list(n):
+def print_1_to_max_of_n_digit_list(n):
     """
     :param n:num of digit
     :return:None
@@ -47,22 +47,32 @@ def print_1_max_of_n_digit_list(n):
                 cur_num[i-1] += 1
             else:
                 break
-
     return
 
-def print_1_max_of_n_digit_list_recursively(n):
-    cur_num = [0] * n
+def print_1_to_max_of_n_digit_list_recursively(n):
+    """
+    :param n:num of digit
+    :return: None
+    """
+    if n <= 0:
+        raise Exception('Invalid Input')
 
-    def recursive_print(d_i):
-        if d_i == n:
+    def recursive_print(d_i, cur_num, num_of_digit):
+        """
+        :param d_i:index of modified digit
+        :param cur_num: current num
+        :param num_of_digit:limit of num of digit
+        :return: None
+        """
+        if d_i == num_of_digit:
+            # end of recursive
             list_print(cur_num)
             return
         for i in range(10):
             cur_num[d_i] = i
-            recursive_print(d_i+1)
-
+            recursive_print(d_i+1, cur_num, num_of_digit)
         return
 
-    return recursive_print(0)
+    return recursive_print(0, [0] * n, n)
 
-print_1_max_of_n_digit_list_recursively(3)
+print_1_to_max_of_n_digit_list_recursively(-1)
