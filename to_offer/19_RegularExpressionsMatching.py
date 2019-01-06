@@ -10,9 +10,6 @@ def re_exp_matching_backward(s, p):
     :type p: pattern str
     :rtype: match or not
     """
-    if not s or not p:
-        raise Exception('Empty Input')
-
     def is_match(chr_for_match, match_pattern):
         return match_pattern == '.' or match_pattern == chr_for_match
 
@@ -52,10 +49,6 @@ def re_exp_matching(s, p):
         elif str < len(s) and (s[str] == p[pattern] or p[pattern] == '.'):
             return is_match(str + 1, pattern + 1)
         return False
-
-    if not s or not p:
-        raise Exception('Empty Input')
-
     return is_match(0,0)
 
 
