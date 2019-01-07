@@ -42,7 +42,7 @@ def re_exp_matching(s, p):
             return False
         if pattern + 1 < len(p) and p[pattern + 1] == '*':
             if str < len(s) and (p[pattern] == s[str] or p[pattern] == '.'):
-                return is_match(str + 1, pattern + 2) or is_match(str + 1, pattern) or is_match(str, pattern + 2)
+                return  is_match(str + 1, pattern + 2) or is_match(str + 1, pattern) or is_match(str, pattern + 2)
                 # move to 1.next pattern 2. current pattern 3. match 0 time
             else:
                 return is_match(str, pattern + 2)
@@ -73,7 +73,7 @@ def re_exp_matching_dp(s, p):
 
     return dp[-1][-1] == 1
 
-s = "ab"
+s = "aaaaaaab"
 
-p = ".*"
-print(re_exp_matching_dp(s,p))
+p = "a*a*a*a*a*a*a*c"
+print(re_exp_matching(s,p))
