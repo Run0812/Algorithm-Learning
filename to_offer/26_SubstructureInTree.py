@@ -49,6 +49,5 @@ def substrucure_in_tree_2(main, sub):
     return str(preorder(sub)) in str(preorder(main))
 
 
-
 a = TreeNode(123)
 print(str(a))
