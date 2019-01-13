@@ -17,6 +17,10 @@
 """
 
 def print_tree_lines(root):
+    """
+    :param root: tree root
+    :return: None
+    """
     layer = [root]
     next_layer = []
     while layer:

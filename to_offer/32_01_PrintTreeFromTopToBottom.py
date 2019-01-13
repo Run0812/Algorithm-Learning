@@ -13,6 +13,10 @@
 """
 
 def print_top_to_bottom(root):
+    """
+    :param root: tree root
+    :return: None
+    """
     to_print = [root]
     while to_print:
         node = to_print.pop(0)

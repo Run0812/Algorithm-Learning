@@ -6,13 +6,14 @@
 类推。
 例：
 输入：
-                1
-            /        \
-           2          3
-         /   \     /     \
-        4    5     6     7
-       / \  / \   / \   / \
-      8  9 10 11 12 13 14 15
+                  1
+              /       \
+             /         \
+           2            3
+         /   \        /    \
+        4     5      6      7
+       / \   / \    / \    / \
+      8  9  10 11  12 13  14 15
 输出：
 1
 3 2
@@ -21,16 +22,20 @@
 """
 
 def print_tree_lines(root):
+    """
+    :param root: tree root
+    :return: None
+    """
     layer = [root]
     next_layer = []
     reverse = -1
     while layer:
-        for node in layer:
+        for node in layer[::-1]:
             if node:
                 print(node.val, end = " ")
                 next_layer.extend([node.left, node.right][::-reverse])
         print()
-        layer = next_layer[::-1]
+        layer = next_layer
         next_layer = []
         reverse = -reverse
     return
