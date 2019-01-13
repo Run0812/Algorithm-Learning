@@ -51,33 +51,39 @@ def construct_binary_tree2(preorder, inorder):
     :param right: right index of this child tree
     :return: root
     """
-    def construct_recursion(preorder, inorder, left, right):
-        nonlocal match_flag
-        if left == right:
+    def construct_recursion(preorder, l_pre, r_pre, inorder, l_in, r_in):
+        """
+        :param preorder: preorder of binary tree
+        :param l_pre: start index of subtree's preorder
+        :param r_pre: end index of subtree's preorder
+        :param inorder: inorder of binary tree
+        :param l_in: start index of subtree's inorder
+        :param r_in: end index of subtree's inorder
+        :return: current node
+        """
+
+        if l_pre == r_pre:
             # single node & end recursion
-            return TreeNode(preorder[left])
-        elif left > right:
+            return TreeNode(preorder[l_pre])
+        elif l_pre > r_pre:
             # prevent outing of range
             return None
-        root = TreeNode(preorder[left])
-        if preorder[left] in inorder:
-            i = inorder.index(preorder[left])
-            if not (left <= i <= right):
-                match_flag = False
-                return None
+        val = preorder[l_pre]
+        root = TreeNode(val)
+        if val in inorder[l_in:r_in+1]:
+            i = inorder[l_in:r_in+1].index(val)
         else:
-            match_flag = False
-            return None
-        root.left = construct_recursion(preorder, inorder, left+1, i)
-        root.right = construct_recursion(preorder, inorder, i+1,right)
+            raise Exception('Invalid Input: Not A Binary Tree')
+        root.left = construct_recursion(preorder, l_pre+1, l_pre+i, inorder, l_in, l_in+i-1)
+        root.right = construct_recursion(preorder, l_pre+i+1, r_pre, inorder, l_in+i+1, r_in)
         return root
+
     if preorder:
-        match_flag = True
-        root = construct_recursion(preorder, inorder, 0, len(preorder)-1)
-        return root if match_flag else print('Invalid Input')
+        root = construct_recursion(preorder, 0, len(preorder)-1, inorder, 0, len(inorder)-1)
+        return root
     else:
-        return print('EMPTY INPUT!')
+        raise Exception('EMPTY INPUT!')
 
 
-root = construct_binary_tree2([1,2,4,7,3,5,6,8], [4,7,2,1,5,3,8,6])
+root = construct_binary_tree2([1,2,3],[3,2,1])
 print()
