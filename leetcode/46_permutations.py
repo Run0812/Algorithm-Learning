@@ -16,7 +16,7 @@ class Solution:
         recursion_core(nums, 0)
         return comb
 
-    def permute_2(self, nums):
+    def permute_2(self, nums): 
         """
           :type nums: List[int]
           :rtype: List[List[int]]
