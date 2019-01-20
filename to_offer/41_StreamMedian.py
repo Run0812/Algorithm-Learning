@@ -23,13 +23,13 @@ def stream_median(stream):
 
         def insert(self, n):
             if len(self) % 2:
-                if len(self.right) and n > self.right.top():
+                if self.right and n > self.right.top():
                     self.right.insert(n)
                     self.left.insert(self.right.pop())
                 else:
                     self.left.insert(n)
             else:
-                if len(self.left) and n < self.left.top():
+                if self.left and n < self.left.top():
                     self.left.insert(n)
                     self.right.insert(self.left.pop())
                 else:
