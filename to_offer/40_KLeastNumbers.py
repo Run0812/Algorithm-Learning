@@ -43,12 +43,16 @@ def k_least_nums_heap(nums, k):
     big_heap = Heap()
     for n in nums:
         if len(big_heap) < k:
-            big_heap.insert([n])
+            big_heap.insert(n)
         else:
             if n < big_heap.top():
                 big_heap.pop()
-                big_heap.insert([n])
+                big_heap.insert(n)
     return big_heap.data[1:]
 
 nums = [4, 5, 1, 6, 2, 7, 3, 8, 0,-1]
 print(k_least_nums_heap(nums, 4))
+from datstru import  Heap
+h = Heap([6,7,8])
+h.extend([1,2,3,4,5])
+print()
