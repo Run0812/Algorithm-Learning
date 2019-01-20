@@ -169,6 +169,8 @@ class Heap(object):
         show the top element of the heap
         :return: top element
         """
+        if self.len == 0:
+            raise Exception('empty heap')
         return self.data[1]
 
     def pop(self):
@@ -176,6 +178,8 @@ class Heap(object):
         show and delete the top element
         :return: top element
         """
+        if self.len == 0:
+            raise Exception('Pop from an empty heap')
         self.data[1], self.data[-1] = self.data[-1], self.data[1]
         pop_elt = self.data.pop()
         self.len -= 1
