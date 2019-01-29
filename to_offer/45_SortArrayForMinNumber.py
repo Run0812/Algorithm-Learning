@@ -6,8 +6,13 @@
 输入数组{3, 32, 321}, 打印321323。
 """
 
-from functools import cmp_to_key
+
 def sort_array_for_min_number(nums):
+    """
+    :param nums: int list
+    :return: min number string
+    """
+    from functools import cmp_to_key
     # def cmp(a, b):
     #     return -1 if a + b < b + a else 1
     nums = [str(i) for i in nums]
