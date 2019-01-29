@@ -12,7 +12,6 @@
 最大价值53，1->12->5->7->7->16->5
 """
 
-
 def max_val_of_gifts(board):
     """
     :param board: gift val board
