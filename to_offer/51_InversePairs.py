@@ -10,7 +10,7 @@
 
 def inverse_pairs(array):
 
-    def merge_sort(array):
+    def merge_sort(nums, left, right):
 
         def merge(left, right):
             nonlocal inverse
@@ -28,17 +28,16 @@ def inverse_pairs(array):
             sorted = right[:j+1] + sorted
             return sorted
 
-        length = len(array)
-        mid = length // 2
-        if length <= 1:
-            return array
-        left = merge_sort(array[:mid])
-        right = merge_sort(array[mid:])
+        mid = (left + right) // 2
+        if right - left <= 1:
+            return nums[left:right]
+        left = merge_sort(array, left, mid)
+        right = merge_sort(array, mid, right)
         return merge(left, right)
 
     inverse = 0
-    merge_sort(array)
+    merge_sort(array, 0, len(array))
 
     return inverse
 
-print(inverse_pairs([0]))
+print(inverse_pairs([1,2,3,4,7,6,5]))
