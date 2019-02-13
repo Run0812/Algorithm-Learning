@@ -9,6 +9,11 @@
 """
 
 def num_of_k(nums, k):
+    """
+    :param nums: array
+    :param k: find K
+    :return: times that K appears
+    """
     left, right = 0, len(nums)-1
     while left <= right:
         mid = (left + right) // 2

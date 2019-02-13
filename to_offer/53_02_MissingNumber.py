@@ -6,6 +6,10 @@
 """
 
 def missing_num(nums):
+    """
+    :param nums: array
+    :return: missing number
+    """
     left, right = 0, len(nums) - 1
     while left <= right:
         mid = (left + right) // 2
