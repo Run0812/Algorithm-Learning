@@ -20,14 +20,24 @@ def kth_node_in_BST(root, k):
     """
 
     def recursion(root, k):
+        nonlocal target
         if not root:
-            return
-        recursion(root.left, k)
-        if k == 1:
-            return root
-        else:
-            k -= 1
-        recursion(root.right, k)
+            return k
+        k = recursion(root.left, k)
+        if not target:
+            if k == 1:
+                target = root
+            else:
+                k -= 1
+        if not target:
+            k = recursion(root.right, k)
+        return k
+    target = None
+    recursion(root, k)
+    return target
 
-    return  recursion(root, k)
-
+from datstru import list_to_treenode
+tree = list_to_treenode([8,6,10,5,7,9,11])
+k = 8
+ans = kth_node_in_BST(tree, k)
+print()
