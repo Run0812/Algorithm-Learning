@@ -1,0 +1,33 @@
+"""
+面试题：二叉搜索树的第K大节点
+题目：给定一棵二叉搜索树，请找出其中第k大的节点。
+
+例：
+如下图的二叉搜索树，按节点数值大小顺序，第三大节点是4。
+        5
+       / \
+      3   7
+     / \ / \
+    2  4 6  8
+"""
+
+
+def kth_node_in_BST(root, k):
+    """
+    :param root: Binary Search Tree root
+    :param k: kth smallest
+    :return: kth smallest node
+    """
+
+    def recursion(root, k):
+        if not root:
+            return
+        recursion(root.left, k)
+        if k == 1:
+            return root
+        else:
+            k -= 1
+        recursion(root.right, k)
+
+    return  recursion(root, k)
+
