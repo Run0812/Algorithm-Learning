@@ -10,8 +10,12 @@ def dices_probability(n):
     for i in range(2,n+1):
         cache = {}
         for val in range(1 * i, 6 * i + 1):
-            cache[val] = times.get(val - 1, 0) + times.get(val - 2, 0) + times.get(val - 3, 0)\
-                         + times.get(val - 4, 0) + times.get(val - 5, 0) + times.get(val - 6, 0)
+            cache[val] = 0
+            j = 1
+            while j <= 6:
+                if (val - j) in times:
+                    cache[val] += times[val - j]
+                j += 1
         times = cache
 
     for val in times:
