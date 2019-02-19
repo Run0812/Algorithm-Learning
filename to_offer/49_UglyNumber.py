@@ -23,4 +23,4 @@ def get_ugly_num(index):
             i_5 += 1
     return ugly_num[-1]
 
-print(get_ugly_num(9))
+print(get_ugly_num(100))
