@@ -9,6 +9,10 @@ n = 5，输出5；n = 13，输出1； n = 19， 输出4。
 """
 
 def digits_in_sequence(n):
+    """
+    :param n: nth
+    :return: nth digit
+    """
     if n < 10:
         return n
     else:
