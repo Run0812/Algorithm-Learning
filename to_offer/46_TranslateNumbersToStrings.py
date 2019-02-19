@@ -14,7 +14,7 @@ def trans_nums_to_strs(nums):
     :return: number of translations
     """
     nums = str(nums)
-    cache = [1, 1]
+    cache = [1, 1] # sol(n-2), sol(n-1)
     for i in range(1, len(nums)):
         if 9 < int(nums[i-1:i+1]) < 26:
             cache[1], cache[0] = cache[0] + cache[1], cache[1]
