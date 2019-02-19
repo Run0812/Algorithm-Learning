@@ -6,6 +6,9 @@
 
 
 def add(a, b):
+    while b:
+        a, b = (a ^ b) & 0xFFFFFFFF, ((a & b) << 1) & 0xFFFFFFFF
+        # limit the bit length < 32
+    return a if a < 0X7fffffff else ~(a ^ 0xFFFFFFFF)
 
-
-    return
+s = add(-1,1)
