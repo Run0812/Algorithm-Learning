@@ -10,6 +10,11 @@
 
 
 def max_in_sliding_window(array, window_width):
+    """
+    :param array: numbers
+    :param window_width:sliding window size
+    :return: all max number
+    """
     if not array or window_width < 1:
         return None
     max_i = []
