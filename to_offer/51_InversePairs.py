@@ -14,8 +14,18 @@ def inverse_pairs(array):
     :return: number of inverse pairs
     """
     def merge_sort(nums, left, right):
-
+        """
+        :param nums:total array
+        :param left: left index
+        :param right: right index
+        :return: sorted array
+        """
         def merge(left, right):
+            """
+            :param left:left subarray
+            :param right:right subarray
+            :return:sorted array
+            """
             nonlocal inverse
             i, j = len(left) - 1, len(right) - 1
             k = i + j + 1
