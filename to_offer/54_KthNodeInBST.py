@@ -38,6 +38,6 @@ def kth_node_in_BST(root, k):
 
 from datstru import list_to_treenode
 tree = list_to_treenode([8,6,10,5,7,9,11])
-k = 8
+k = 1
 ans = kth_node_in_BST(tree, k)
 print()

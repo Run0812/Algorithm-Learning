@@ -11,6 +11,10 @@
 
 
 def numbers_appear_once(nums):
+    """
+    :param nums:array
+    :return: (num1, num2)
+    """
     if not nums:
         return None
     s = n1 = n2 = 0

@@ -1,5 +1,6 @@
 """
 面试题55:二叉树的深度
+题目1：二叉树的深度
 输入一棵二叉树的根节点，求该树的深度。从根节点到叶节点一次经过的节点
 形成树的一条路径，从最长路径的长度为树的深度。
 
@@ -16,7 +17,10 @@
 
 
 def depth_of_tree(root):
-
+    """
+    :param root: tree root
+    :return: height of tree
+    """
     if not root:
         return 0
     left = depth_of_tree(root.left)
