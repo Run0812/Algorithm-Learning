@@ -9,23 +9,31 @@
 """
 
 def inverse_pairs(array):
-
+    """
+    :param array:array
+    :return: number of inverse pairs
+    """
     def merge_sort(nums, left, right):
 
         def merge(left, right):
             nonlocal inverse
-            sorted = []
             i, j = len(left) - 1, len(right) - 1
+            k = i + j + 1
+            sorted = [0] * (k+1)
             while i >= 0 and j >= 0:
                 if left[i] <= right[j]:
-                    sorted =  [right[j]] + sorted
+                    # sorted =  [right[j]] + sorted
+                    sorted[k] = right[j]
                     j -= 1
                 else:
-                    sorted = [left[i]] + sorted
+                    # sorted = [left[i]] + sorted
+                    sorted[k] = right[i]
                     inverse += j+1
                     i -= 1
-            sorted = left[:i+1] + sorted
-            sorted = right[:j+1] + sorted
+                k -= 1
+            # sorted = left[:i+1] + sorted
+            # sorted = right[:j+1] + sorted
+            sorted[:k+1] = left[:i+1] or right[:j+1]
             return sorted
 
         mid = (left + right) // 2
@@ -40,4 +48,4 @@ def inverse_pairs(array):
 
     return inverse
 
-print(inverse_pairs([1,2,3,4,7,6,5]))
+print(inverse_pairs([1,2,3,4,7,6,4,4]))
