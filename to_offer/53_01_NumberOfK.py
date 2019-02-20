@@ -14,6 +14,7 @@ def num_of_k(nums, k):
     :param k: find K
     :return: times that K appears
     """
+    # find middle k
     left, right = 0, len(nums)-1
     while left <= right:
         mid = (left + right) // 2
@@ -27,7 +28,7 @@ def num_of_k(nums, k):
         raise Exception('NO SUCH NUMBER')
     start_l, start_r = left, mid
     end_l, end_r = mid, right
-
+    # find start boundary
     while start_l <= start_r:
         start = (start_l + start_r) // 2
         if nums[start] != k:
@@ -37,7 +38,7 @@ def num_of_k(nums, k):
                 start_r = start - 1
             else:
                 break
-
+    # find end boundary
     while end_l <= end_r:
         end = (end_l + end_r) // 2
         if nums[end] != k:
