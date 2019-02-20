@@ -14,17 +14,21 @@ def continuous_sequence_with_sum(s):
     :param s: target sum
     :return: None
     """
-    small, big = 1, 1
+    small, big = 1, 2
+    sum = 3
     while small <= (1+s) // 2:
-        sum = (small + big) * (big - small + 1) / 2
         if sum == s:
             print(list(range(small, big + 1)))
+            sum -= small
             small += 1
             big += 1
+            sum += big
         elif sum > s:
+            sum -= small
             small += 1
         else:
             big += 1
+            sum += big
     return
 
 continuous_sequence_with_sum(15)
