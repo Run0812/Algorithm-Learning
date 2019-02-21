@@ -6,6 +6,10 @@
 
 
 def continuous_cards(cards):
+    """
+    :param cards: list represents cards
+    :return: is continuous
+    """
     cards.sort()
     joker = 0
     for card in cards:
@@ -17,10 +21,9 @@ def continuous_cards(cards):
         raise Exception('impossible combo')
     for i in range(joker+1,5):
         if cards[i] - cards[i - 1] != 1:
-            if joker:
-                joker -= 1
-            else:
-                return False
+            joker -= (cards[i] - cards[i - 1] - 1)
+        if joker < 0:
+            return False
     return True
 
-print(continuous_cards([ 1, 2, 3, 4, 0]))
+print(continuous_cards([ 1, 2, 3, 5, 0]))

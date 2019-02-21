@@ -6,13 +6,16 @@
 
 
 def construct_array(nums):
-
+    """
+    :param nums: array
+    :return: mul array
+    """
     l = len(nums)
-    ans = [1 for i in range(l)]
+    ans = [1 for _ in range(l)]
     p = q = 1
     for i in range(l):
         ans[i] *= q
         ans[-i - 1] *= p
         q *= nums[i]
         p *= nums[-i - 1]
-    return
+    return ans

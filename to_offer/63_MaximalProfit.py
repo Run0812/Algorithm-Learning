@@ -10,6 +10,10 @@
 
 
 def maximal_profit(prices):
+    """
+    :param prices:prices list
+    :return: max profit
+    """
     max_p = c_p = 0
     for i in range(1, len(prices)):
         c_p += prices[i] - prices[i - 1]
